@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="row">
+        {% for chambre in chambres: %}
+            <div class="col-4 mb-4">
+            <div class="card" >
+                <a href="{{ url_for('chambre', id_chambre=chambre.id_chambre) }}">
+                    <img src="{{ url_for('static', filename='images/' + chambre.image_chambre) }}" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ chambre.nom_chambre }}</h5>
+                    <p class="card-text">{{ chambre.description }}</p>
+                    <p class="card-text">Prix/nuit: <strong>{{ chambre.prix }}€</strong></p>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
